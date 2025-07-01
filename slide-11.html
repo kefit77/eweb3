@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プッチデスク | ロードマップ</title>
+  <!-- Tailwind & icon fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary:#000;
+      --bg-card:#111;
+      --accent:#4AF35B;
+      --font-main:#fff;
+      --font-sub:#B3B3B3;
+    }
+    html,body{
+      margin:0;
+      padding:0;
+      height:100%;
+      width:100%;
+      font-family:'Inter','Noto Sans JP',sans-serif;
+      background:var(--bg-primary);
+    }
+    /* ---- 過不足ない余白で PDF でも真っ黒背景を維持 ---- */
+    @page{ size:1920px 1080px; margin:0; }
+    @media print{ html,body{ width:1920px; height:1080px; } }
+
+    /* ---- スライド全体 ---- */
+    .slide{ width:1920px; height:1080px; position:relative; overflow:hidden; box-sizing:border-box; }
+    .slide-title{ font-family:'Space Mono',monospace; font-weight:700; }
+    .accent{ color:var(--accent); }
+
+    /* ---- タイムライン ---- */
+    .timeline-phase{ border-left:3px solid var(--accent); position:relative; }
+    .timeline-phase:last-child{ border-left-color:transparent; }
+    .timeline-dot{ position:absolute; left:-10px; top:0; width:16px; height:16px; border-radius:50%; background:var(--accent); }
+    .phase-date{ font-family:'Space Mono',monospace; font-weight:700; color:var(--accent); }
+
+    /* ---- カード & 汎用 ---- */
+    .task-card{ background:var(--bg-card); border:1px solid #333; transition:all .3s ease; }
+    .task-card:hover{ border-color:var(--accent); }
+    .task-icon{ color:var(--accent); }
+    .bottom-line{ height:1px; background:#333; }
+    .footer-text{ font-size:14px; color:var(--font-sub); }
+  </style>
+</head>
+<body>
+  <section class="slide flex flex-col text-white">
+    <!-- ヘッダー -->
+    <header class="px-20 pt-14 pb-6">
+      <h1 class="slide-title text-5xl">ロード<span class="accent">マップ</span></h1>
+    </header>
+
+    <main class="flex-1 px-20 flex">
+      <!-- タイムライン (40%) -->
+      <div class="w-2/5 pr-12 pt-4">
+        <div class="flex flex-col space-y-12 pl-12">
+          <!-- P0 -->
+          <div class="timeline-phase pb-10">
+            <div class="timeline-dot"></div>
+            <div class="pl-8">
+              <p class="phase-date text-2xl leading-tight mb-1">P0: 2025 Q2</p>
+              <p class="text-lg font-bold mb-4">検証・設計</p>
+              <div class="task-card p-4">
+                <p class="text-sm mb-2 font-semibold">主要マイルストーン</p>
+                <ul class="text-sm text-gray-300 list-disc pl-4 space-y-1">
+                  <li>スマートコントラクト PoC</li>
+                  <li>リーガルオピニオン取得</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- P1 -->
+          <div class="timeline-phase pb-10">
+            <div class="timeline-dot"></div>
+            <div class="pl-8">
+              <p class="phase-date text-2xl leading-tight mb-1">P1: 2025 Q3</p>
+              <p class="text-lg font-bold mb-4">MVP リリース</p>
+              <div class="task-card p-4">
+                <p class="text-sm mb-2 font-semibold">主要マイルストーン</p>
+                <ul class="text-sm text-gray-300 list-disc pl-4 space-y-1">
+                  <li>Top30 ロボットの NFT 化</li>
+                  <li>社内ユーザー β テスト</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- P2 -->
+          <div class="timeline-phase pb-10">
+            <div class="timeline-dot"></div>
+            <div class="pl-8">
+              <p class="phase-date text-2xl leading-tight mb-1">P2: 2025 Q4</p>
+              <p class="text-lg font-bold mb-4">パブリック α</p>
+              <div class="task-card p-4">
+                <p class="text-sm mb-2 font-semibold">主要マイルストーン</p>
+                <ul class="text-sm text-gray-300 list-disc pl-4 space-y-1">
+                  <li>Embedded Plan 提携先 1 社と統合</li>
+                  <li>「Stake‑to‑Allocate」開始</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- P3 -->
+          <div class="timeline-phase pb-10">
+            <div class="timeline-dot"></div>
+            <div class="pl-8">
+              <p class="phase-date text-2xl leading-tight mb-1">P3: 2026 H1</p>
+              <p class="text-lg font-bold mb-4">スケール</p>
+              <div class="task-card p-4">
+                <p class="text-sm mb-2 font-semibold">主要マイルストーン</p>
+                <ul class="text-sm text-gray-300 list-disc pl-4 space-y-1">
+                  <li>White Label 2 社導入</li>
+                  <li>DAO 化ロードマップ公表</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- P4 -->
+          <div class="timeline-phase">
+            <div class="timeline-dot"></div>
+            <div class="pl-8">
+              <p class="phase-date text-2xl leading-tight mb-1">P4: 2026 H2</p>
+              <p class="text-lg font-bold mb-4">DAO 移行</p>
+              <div class="task-card p-4">
+                <p class="text-sm mb-2 font-semibold">主要マイルストーン</p>
+                <ul class="text-sm text-gray-300 list-disc pl-4 space-y-1">
+                  <li>トークノミクス 3.0（買戻し & Burn）</li>
+                  <li>主要パラメータのオンチェーン投票</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右カラム (60%) -->
+      <div class="w-3/5 pl-12 flex flex-col">
+        <p class="text-2xl mb-8 font-semibold">各フェーズの詳細タスク</p>
+        <!-- タスク 2 カラム -->
+        <div class="grid grid-cols-2 gap-6">
+          <!-- 技術 -->
+          <div class="task-card p-6">
+            <div class="flex items-center mb-5">
+              <i class="fas fa-code task-icon text-xl mr-4"></i>
+              <h3 class="text-lg font-bold">技術タスク</h3>
+            </div>
+            <div class="space-y-4 text-sm text-gray-300">
+              <div>
+                <p class="font-semibold text-white mb-1">P0‑P1</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>ERC‑20／ERC‑721 の試験発行</li>
+                  <li>ロボット NFT Mint & Burn API</li>
+                  <li>Robot トークンのオンチェーン P&L 連携</li>
+                  <li>リアルタイム成績オラクル</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-white mb-1">P2‑P3</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Numerai 型ステーキング契約を実装</li>
+                  <li>ガバナンストークン拡張</li>
+                  <li>報酬プール自動リバランス</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-white mb-1">P4</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>クロスチェーン展開（L2, IBC）</li>
+                  <li>高度オンチェーンガバナンス機能</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- ビジネス/法務 -->
+          <div class="task-card p-6">
+            <div class="flex items-center mb-5">
+              <i class="fas fa-briefcase task-icon text-xl mr-4"></i>
+              <h3 class="text-lg font-bold">ビジネス・法務タスク</h3>
+            </div>
+            <div class="space-y-4 text-sm text-gray-300">
+              <div>
+                <p class="font-semibold text-white mb-1">P0‑P1</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>金商法上「電子記録移転権利」該当性確認</li>
+                  <li>税務ストラクチャ草案</li>
+                  <li>社内 KYC／AML 流れ整備</li>
+                  <li>損益計算レポート自動生成</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-white mb-1">P2‑P3</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>IEO / IDO 準備（海外 CEX or JVCEA II）</li>
+                  <li>海外ファンド車両（ケイマン SPC）設立</li>
+                  <li>リスク開示文書更新</li>
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold text-white mb-1">P4</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>金融庁向けモニタリング報告自動化</li>
+                  <li>グローバル展開のための法務対応</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI -->
+        <div class="flex justify-center space-x-24 mt-16">
+          <div class="text-center">
+            <p class="text-xs text-gray-400 mb-1">全行程</p>
+            <p class="font-mono text-4xl font-bold accent">18 ヶ月</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs text-gray-400 mb-1">目標完了日</p>
+            <p class="font-mono text-4xl font-bold accent">2026.Q4</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs text-gray-400 mb-1">マイルストーン数</p>
+            <p class="font-mono text-4xl font-bold accent">10+</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="absolute bottom-8 w-full px-20">
+      <div class="bottom-line mb-6"></div>
+      <div class="flex justify-between items-center">
+        <span class="footer-text">PutchDesk Confidential © 2025</span>
+        <span class="footer-text">1</span>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>

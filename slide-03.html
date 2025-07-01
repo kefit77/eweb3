@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFIT-P - EFIT-Pとは</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #000000;
+        }
+        
+        /* A4横向き用の設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #000000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .slide-container {
+                width: 297mm;
+                height: 210mm;
+                margin: 0;
+                padding: 0;
+                page-break-after: avoid;
+                position: relative;
+            }
+        }
+        
+        /* 画面表示用 */
+        @media screen {
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #222;
+            }
+            
+            .slide-container {
+                width: 1280px;
+                height: 720px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+        
+        .slide-container {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .content-box {
+            border-left: 3px solid #4AF35B;
+            background-color: #111111;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .key-point {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .key-point i {
+            color: #4AF35B;
+            margin-right: 14px;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .bottom-line {
+            height: 1px;
+            background-color: #333;
+        }
+        
+        .connection-node {
+            background-color: #111111;
+            border: 1px solid #4AF35B;
+            transition: all 0.3s ease;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .connection-node:hover {
+            background-color: rgba(74, 243, 91, 0.1);
+        }
+        
+        .connection-icon {
+            color: #4AF35B;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Title area -->
+        <div style="width: 100%; padding: 48px 64px 16px;">
+            <h1 class="slide-title" style="font-size: 40px;">EFIT-P<span class="accent-color">とは</span></h1>
+        </div>
+        
+        <!-- Content area -->
+        <div style="display: flex; flex: 1; padding: 0 64px 64px;">
+            <!-- Left side - Text content -->
+            <div style="width: 50%; padding-right: 40px; display: flex; flex-direction: column; justify-content: center;">
+                <div class="content-box" style="padding: 24px; margin-bottom: 32px;">
+                    <p style="font-size: 20px; line-height: 1.6; margin-bottom: 16px;">
+                        <span class="accent-color" style="font-weight: 700;">2万体超のAIロボット</span>をNFTとしてWeb3上に解放し、開発者と投資家が透明＆分散的に利益共有できる新しい資産運用プロトコル
+                    </p>
+                    <p style="font-size: 18px; color: #B3B3B3;">
+                        ブラックボックス運用を排除し、オンチェーンで投資の民主化を実現します
+                    </p>
+                </div>
+                
+                <div style="margin-top: 16px;">
+                    <div class="key-point">
+                        <i class="fas fa-cube"></i>
+                        <span>最小1万円から市場中立ポートフォリオへアクセス</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>開発者が自らトークンを賭けて成果を証明</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-chart-line"></i>
+                        <span>収益性・透明性・参加性を両立した次世代システム</span>
+                    </div>
+                </div>
+                
+                <!-- Key metrics -->
+                <div style="margin-top: 40px; display: flex; gap: 40px;">
+                    <div style="text-align: center;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 4px;">AIロボット数</p>
+                        <p style="font-family: 'Space Mono', monospace; font-size: 30px; font-weight: 700;" class="accent-color">20,000+</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 4px;">最小投資額</p>
+                        <p style="font-family: 'Space Mono', monospace; font-size: 30px; font-weight: 700;" class="accent-color">¥10,000</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side - Visual content -->
+            <div style="width: 50%; padding-left: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <!-- Central concept illustration -->
+                <div style="position: relative; width: 100%; height: 256px;">
+                    <!-- Central NFT Robot -->
+                    <div class="connection-node" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; padding: 32px;">
+                        <i class="fas fa-robot connection-icon" style="font-size: 60px;"></i>
+                        <div style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); font-size: 12px; background-color: #000; padding: 4px 12px; border-radius: 9999px; border: 1px solid #4AF35B; color: #4AF35B;">
+                            NFT
+                        </div>
+                    </div>
+                    
+                    <!-- Connected elements -->
+                    <div class="connection-node" style="position: absolute; top: 0; left: 25%; padding: 16px; border-radius: 50%;">
+                        <i class="fas fa-users connection-icon" style="font-size: 24px;"></i>
+                        <p style="font-size: 12px; margin-top: 4px; text-align: center;">投資家</p>
+                    </div>
+                    
+                    <div class="connection-node" style="position: absolute; top: 33%; right: 40px; padding: 16px; border-radius: 50%;">
+                        <i class="fas fa-code connection-icon" style="font-size: 24px;"></i>
+                        <p style="font-size: 12px; margin-top: 4px; text-align: center;">開発者</p>
+                    </div>
+                    
+                    <div class="connection-node" style="position: absolute; bottom: 0; left: 64px; padding: 16px; border-radius: 50%;">
+                        <i class="fas fa-coins connection-icon" style="font-size: 24px;"></i>
+                        <p style="font-size: 12px; margin-top: 4px; text-align: center;">EFTトークン</p>
+                    </div>
+                    
+                    <div class="connection-node" style="position: absolute; bottom: 40px; right: 25%; padding: 16px; border-radius: 50%;">
+                        <i class="fas fa-link connection-icon" style="font-size: 24px;"></i>
+                        <p style="font-size: 12px; margin-top: 4px; text-align: center;">オンチェーン</p>
+                    </div>
+                    
+                    <!-- Connection lines -->
+                    <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 400 300">
+                        <line x1="200" y1="150" x2="100" y2="50" stroke="#4AF35B" stroke-width="1" stroke-opacity="0.6" />
+                        <line x1="200" y1="150" x2="300" y2="100" stroke="#4AF35B" stroke-width="1" stroke-opacity="0.6" />
+                        <line x1="200" y1="150" x2="80" y2="250" stroke="#4AF35B" stroke-width="1" stroke-opacity="0.6" />
+                        <line x1="200" y1="150" x2="300" y2="220" stroke="#4AF35B" stroke-width="1" stroke-opacity="0.6" />
+                    </svg>
+                </div>
+                
+                <!-- Description text -->
+                <div style="text-align: center; margin-top: 48px; padding: 16px 24px; border: 1px solid #333; background-color: #000;">
+                    <p style="font-size: 14px; color: #B3B3B3;">
+                        <span class="accent-color">"</span>優秀なモデルを世界から集め、過学習を罰し、実運用利益を共有<span class="accent-color">"</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding: 0 64px 24px;">
+            <div class="bottom-line" style="margin-bottom: 16px;"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; align-items: center; font-size: 14px; color: #999;">
+                    <span>EFIT-P | Web3 Investment Protocol</span>
+                </div>
+                <p style="font-size: 14px; color: #999;">03</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

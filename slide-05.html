@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFIT-P - ソリューション全体像</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #000000;
+        }
+        
+        /* A4横向き用の設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #000000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .slide-container {
+                width: 297mm;
+                height: 210mm;
+                margin: 0;
+                padding: 0;
+                page-break-after: avoid;
+                position: relative;
+            }
+        }
+        
+        /* 画面表示用 */
+        @media screen {
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #222;
+            }
+            
+            .slide-container {
+                width: 1280px;
+                height: 720px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+        
+        .slide-container {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .content-box {
+            border-left: 3px solid #4AF35B;
+            background-color: #111111;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .key-point {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .key-point i {
+            color: #4AF35B;
+            margin-right: 14px;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .bottom-line {
+            height: 1px;
+            background-color: #333;
+        }
+        
+        .solution-card {
+            background-color: #111111;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .solution-card:hover {
+            border-color: #4AF35B;
+            transform: translateY(-5px);
+        }
+        
+        .solution-icon {
+            color: #4AF35B;
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .solution-title {
+            color: #4AF35B;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Title area -->
+        <div style="width: 100%; padding: 48px 64px 16px;">
+            <h1 class="slide-title" style="font-size: 40px;">ソリューション<span class="accent-color">全体像</span></h1>
+        </div>
+        
+        <!-- Content area -->
+        <div style="display: flex; flex: 1; padding: 0 64px 24px;">
+            <!-- Left side - Text content -->
+            <div style="width: 50%; padding-right: 40px; display: flex; flex-direction: column; justify-content: center;">
+                <div class="content-box" style="padding: 24px; margin-bottom: 32px;">
+                    <p style="font-size: 20px; line-height: 1.6; margin-bottom: 16px;">
+                        <span class="accent-color" style="font-weight: 700;">EFIT-P</span>は従来の投資市場の課題を、Web3技術とQUOREAのAIロボットによって解決する革新的プラットフォームです
+                    </p>
+                    <p style="font-size: 18px; color: #B3B3B3;">
+                        4つの主要コンポーネントが連携し、透明性と実績に基づく新しい投資エコシステムを実現
+                    </p>
+                </div>
+                
+                <div style="margin-top: 16px;">
+                    <div class="key-point">
+                        <i class="fas fa-check-circle"></i>
+                        <span>投資家と開発者のインセンティブ一致</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Numeraiモデルをマルチアセットに拡張</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-check-circle"></i>
+                        <span>NFTによる利用権・収益権のトークン化</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-check-circle"></i>
+                        <span>1万円から市場中立型ポートフォリオを提供</span>
+                    </div>
+                </div>
+                
+                <!-- Key metrics -->
+                <div style="margin-top: 40px; display: flex; gap: 40px;">
+                    <div style="text-align: center;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 4px;">成功報酬</p>
+                        <p class="metric-value accent-color" style="font-size: 30px;">20%</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 4px;">管理料</p>
+                        <p class="metric-value accent-color" style="font-size: 30px;">1%</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 4px;">NFT Premium</p>
+                        <p class="metric-value accent-color" style="font-size: 30px;">0-2%</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side - Solution components -->
+            <div style="width: 50%; padding-left: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%;">
+                    <!-- Robot NFT -->
+                    <div class="solution-card" style="border-radius: 8px; padding: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <i class="fas fa-robot solution-icon"></i>
+                        <h3 class="solution-title" style="font-size: 18px;">Robot NFT</h3>
+                        <p style="font-size: 14px; color: #B3B3B3;">2万体超のAIロボットをERC-721でトークン化し、利用権/収益権を付与</p>
+                    </div>
+                    
+                    <!-- EFT Token -->
+                    <div class="solution-card" style="border-radius: 8px; padding: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <i class="fas fa-coins solution-icon"></i>
+                        <h3 class="solution-title" style="font-size: 18px;">EFITトークン</h3>
+                        <p style="font-size: 14px; color: #B3B3B3;">ERC-20ガバナンストークン。手数料支払い・ステーキングに利用（総発行10億枚）</p>
+                    </div>
+                    
+                    <!-- Stake to Allocate -->
+                    <div class="solution-card" style="border-radius: 8px; padding: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <i class="fas fa-handshake solution-icon"></i>
+                        <h3 class="solution-title" style="font-size: 18px;">Stake-to-Allocate</h3>
+                        <p style="font-size: 14px; color: #B3B3B3;">開発者がEFTをステークし、パフォーマンスで報酬または焼却される透明な制度</p>
+                    </div>
+                    
+                    <!-- Onchain P&L -->
+                    <div class="solution-card" style="border-radius: 8px; padding: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <i class="fas fa-chart-line solution-icon"></i>
+                        <h3 class="solution-title" style="font-size: 18px;">オンチェーンP&L</h3>
+                        <p style="font-size: 14px; color: #B3B3B3;">QUOREAの実取引APIから1時間毎に損益をブロックチェーンに記録</p>
+                    </div>
+                </div>
+                
+                <!-- Bottom text -->
+                <div style="margin-top: 40px; text-align: center; padding: 16px 24px; border: 1px solid #333; background-color: #000; width: 100%;">
+                    <p style="font-size: 14px; color: #B3B3B3;">
+                        <span class="accent-color">"</span>ブラックボックス運用に終止符を打ち、投資のアルファをオンチェーンで民主化<span class="accent-color">"</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding: 0 64px 24px;">
+            <div class="bottom-line" style="margin-bottom: 16px;"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; align-items: center; font-size: 14px; color: #999;">
+                    <span>EFIT-P | Web3 Investment Protocol</span>
+                </div>
+                <p style="font-size: 14px; color: #999;">05</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

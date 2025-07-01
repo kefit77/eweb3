@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>運用スキーム・フロー図 | PutchDesk</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    /* -------------------------------------------------- Base -------------------------------------------------- */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{width:1280px;height:720px;overflow:hidden;background:#000;color:#fff;font-family:'Inter','Noto Sans JP',sans-serif;}
+    .slide{width:inherit;height:inherit;display:flex;flex-direction:column;position:relative;}
+    .title-wrap{padding:48px 60px 24px;}
+    .title{font-family:'Space Mono',monospace;font-size:48px;font-weight:700;}
+    .accent{color:#4AF35B;}
+    /* -------------------------------------------------- Node -------------------------------------------------- */
+    .node{position:absolute;width:256px;padding:24px;background:#111;border:1px solid #333;border-radius:8px;text-align:center;transition:.2s;}
+    .node:hover{border-color:#4AF35B;box-shadow:0 0 8px rgba(74,243,91,.25);}
+    .node i{color:#4AF35B;font-size:32px;margin-bottom:12px;}
+    .node.active{border-color:#4AF35B;}
+    .node p{font-size:12px;color:#b3b3b3;}
+    .node ul{margin-top:8px;text-align:left;padding-left:16px;font-size:11px;}
+    /* -------------------------------------------------- Connector -------------------------------------------------- */
+    svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+    .line{stroke:#4AF35B;stroke-width:1.8;marker-end:url(#arrow);}
+    /* dashed flow */
+    .flow{stroke-dasharray:4;animation:dash 16s linear infinite;}
+    @keyframes dash{to{stroke-dashoffset:800;}}
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <!-- Header -->
+    <div class="title-wrap">
+      <h1 class="title">運用スキーム<span class="accent">・フロー図</span></h1>
+      <p class="text-sm text-gray-400 mt-2">取引所、プラットフォーム、投資家間の資産・情報フロー</p>
+    </div>
+
+    <!-- SVG Connectors recalculated -->
+    <svg viewBox="0 0 1280 720">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#4AF35B" />
+        </marker>
+      </defs>
+
+      <!-- 1. Exchange ➜ Platform -->
+      <line class="line flow" x1="406" y1="240" x2="450" y2="240" />
+      <!-- 2. Platform ➜ Robot NFT -->
+      <line class="line flow" x1="706" y1="200" x2="750" y2="200" />
+      <!-- 3. Robot NFT ➜ Investor (invest) -->
+      <line class="line flow" x1="1006" y1="200" x2="1050" y2="200" />
+      <!-- 4. Investor ➜ Robot NFT (return) -->
+      <line class="line flow" x1="1050" y1="240" x2="1006" y2="240" />
+      <!-- 5. Platform ➜ Exchange (profit share) -->
+      <line class="line flow" x1="450" y1="280" x2="406" y2="300" />
+      <!-- 6. Platform ➜ NFT Market -->
+      <line class="line flow" x1="578" y1="320" x2="578" y2="380" />
+      <!-- 7. NFT Market ➜ Stake -->
+      <line class="line flow" x1="578" y1="420" x2="878" y2="420" />
+      <!-- 8. Stake ➜ Platform (model contrib) -->
+      <line class="line flow" x1="878" y1="360" x2="878" y2="320" />
+    </svg>
+
+    <!-- Nodes - recalibrated coordinates (top,left) match lines -->
+    <!-- Exchange -->
+    <div class="node" style="top:180px;left:150px;">
+      <i class="fas fa-university"></i>
+      <h3 class="text-lg font-bold">取引所</h3>
+      <p class="mt-1">証券会社API接続</p>
+      <ul>
+        <li>• CFD / FX / 暗号資産</li>
+        <li>• マルチブローカー連携</li>
+      </ul>
+    </div>
+
+    <!-- Platform -->
+    <div class="node active" style="top:140px;left:450px;">
+      <i class="fas fa-server"></i>
+      <h3 class="text-lg font-bold">EFIT‑Pプラットフォーム</h3>
+      <p class="mt-1">QUOREAエンジン</p>
+      <ul>
+        <li>• Rust + Wasm Core</li>
+        <li>• オラクル連携</li>
+      </ul>
+    </div>
+
+    <!-- Robot NFT -->
+    <div class="node" style="top:120px;left:750px;">
+      <i class="fas fa-robot"></i>
+      <h3 class="text-lg font-bold">Robot NFT</h3>
+      <p class="mt-1">2万体のAIロボット</p>
+      <ul>
+        <li>• ERC‑721トークン</li>
+        <li>• 収益権 / 利用権</li>
+      </ul>
+    </div>
+
+    <!-- Investor -->
+    <div class="node" style="top:150px;left:1050px;">
+      <i class="fas fa-users"></i>
+      <h3 class="text-lg font-bold">投資家</h3>
+      <p class="mt-1">最小1万円から参加</p>
+      <ul>
+        <li>• 個人 / 機関投資家</li>
+        <li>• 成功報酬20% (HWM)</li>
+      </ul>
+    </div>
+
+    <!-- NFT Market -->
+    <div class="node" style="top:380px;left:450px;">
+      <i class="fas fa-store"></i>
+      <h3 class="text-lg font-bold">NFT Marketplace</h3>
+      <p class="mt-1">取引・流動性提供</p>
+      <ul>
+        <li>• ロボット権利の売買</li>
+        <li>• Premium 0〜2%</li>
+      </ul>
+    </div>
+
+    <!-- Stake -->
+    <div class="node" style="top:380px;left:878px;">
+      <i class="fas fa-link"></i>
+      <h3 class="text-lg font-bold">Stake‑to‑Allocate</h3>
+      <p class="mt-1">開発者インセンティブ</p>
+      <ul>
+        <li>• EFTトークンステーク</li>
+        <li>• 成功報酬 / ペナルティ</li>
+      </ul>
+    </div>
+
+    <!-- Footer metrics & line -->
+    <div class="absolute bottom-24 w-full flex justify-center gap-20">
+      <div class="text-center">
+        <p class="text-xs text-gray-400">フィーモデル</p>
+        <p class="font-mono text-3xl font-bold accent">1‑1‑20</p>
+      </div>
+      <div class="text-center">
+        <p class="text-xs text-gray-400">更新頻度</p>
+        <p class="font-mono text-3xl font-bold accent">1時間</p>
+      </div>
+      <div class="text-center">
+        <p class="text-xs text-gray-400">対応資産</p>
+        <p class="font-mono text-3xl font-bold accent">複数</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-6 left-16 right-16 flex justify-between items-center border-t border-gray-700 pt-4">
+      <span class="text-sm text-gray-400">PutchDesk Confidential © 2025</span>
+      <span class="text-sm text-gray-400 font-mono">11 / 13</span>
+    </div>
+  </div>
+</body>
+</html>

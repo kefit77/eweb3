@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFIT-P - 主なコンポーネント</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #000000;
+        }
+        
+        /* A4横向き用の設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #000000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .slide-container {
+                width: 297mm;
+                height: 210mm;
+                margin: 0;
+                padding: 0;
+                page-break-after: avoid;
+                position: relative;
+            }
+        }
+        
+        /* 画面表示用 */
+        @media screen {
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #222;
+            }
+            
+            .slide-container {
+                width: 1280px;
+                height: 720px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+        
+        .slide-container {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .component-card {
+            background-color: #111111;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .component-card:hover {
+            border-color: #4AF35B;
+            background-color: rgba(74, 243, 91, 0.05);
+        }
+        
+        .component-icon {
+            color: #4AF35B;
+        }
+        
+        .component-title {
+            color: #4AF35B;
+            font-weight: 600;
+        }
+        
+        .bottom-line {
+            height: 1px;
+            background-color: #333;
+        }
+        
+        .connector-line {
+            position: absolute;
+            border-top: 1px dashed #4AF35B;
+            z-index: 1;
+        }
+        
+        .connector-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #4AF35B;
+            z-index: 2;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Title area -->
+        <div style="width: 100%; padding: 48px 64px 16px;">
+            <h1 class="slide-title" style="font-size: 40px;">主な<span class="accent-color">コンポーネント</span></h1>
+        </div>
+        
+        <!-- Content area -->
+        <div style="display: flex; flex: 1; padding: 0 64px;">
+            <!-- Left side - Text explanation -->
+            <div style="width: 50%; padding-right: 40px;">
+                <p style="font-size: 18px; margin-bottom: 32px;">
+                    EFIT-Pは4つの主要コンポーネントから構成され、それぞれが透明性と効率性を実現するために連携して機能します。
+                </p>
+                
+                <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 32px;">
+                    <div style="display: flex; align-items: start;">
+                        <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 16px; flex-shrink: 0;">
+                            <span style="font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; color: #4AF35B;">1</span>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">フィーモデル</h3>
+                            <p style="font-size: 14px; color: #B3B3B3;">成功報酬 20%（HWM）、管理料 1%、Robot NFT Premium 0～2%</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: start;">
+                        <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 16px; flex-shrink: 0;">
+                            <span style="font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; color: #4AF35B;">2</span>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">ガバナンス</h3>
+                            <p style="font-size: 14px; color: #B3B3B3;">EFT ≥ 1% 保有者による提案権、監査委員会、オンチェーン投票での重要パラメータ変更</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: start;">
+                        <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 16px; flex-shrink: 0;">
+                            <span style="font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; color: #4AF35B;">3</span>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">トークンステーキング</h3>
+                            <p style="font-size: 14px; color: #B3B3B3;">5年線形解除のCommunity Rewards、Buy-back & Burnプログラムによる長期保有促進</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side - Component visualization -->
+            <div style="width: 50%; padding-left: 24px; position: relative;">
+                <!-- Component cards -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                    <!-- Robot NFT -->
+                    <div class="component-card" style="padding: 20px; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 12px;">
+                                <i class="fas fa-robot component-icon" style="font-size: 20px;"></i>
+                            </div>
+                            <h3 class="component-title" style="font-size: 18px;">Robot NFT</h3>
+                        </div>
+                        <p style="font-size: 14px; color: #B3B3B3;">AIロボットをERC-721でトークン化し、NFT保有者が利用権/収益権を獲得</p>
+                        <div style="font-size: 12px; margin-top: 16px; padding: 4px 12px; display: inline-block; background-color: #000; border: 1px solid #4AF35B; border-radius: 9999px;">
+                            <span style="font-family: 'Space Mono', monospace; color: #4AF35B;">ERC-721</span>
+                        </div>
+                    </div>
+                    
+                    <!-- EFIT Token -->
+                    <div class="component-card" style="padding: 20px; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 12px;">
+                                <i class="fas fa-coins component-icon" style="font-size: 20px;"></i>
+                            </div>
+                            <h3 class="component-title" style="font-size: 18px;">EFIT Token</h3>
+                        </div>
+                        <p style="font-size: 14px; color: #B3B3B3;">ERC-20準拠。手数料支払い・ステーキングに利用。総発行10億枚</p>
+                        <div style="font-size: 12px; margin-top: 16px; padding: 4px 12px; display: inline-block; background-color: #000; border: 1px solid #4AF35B; border-radius: 9999px;">
+                            <span style="font-family: 'Space Mono', monospace; color: #4AF35B;">ERC-20</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stake-to-Allocate -->
+                    <div class="component-card" style="padding: 20px; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 12px;">
+                                <i class="fas fa-handshake component-icon" style="font-size: 20px;"></i>
+                            </div>
+                            <h3 class="component-title" style="font-size: 18px;">Stake-to-Allocate</h3>
+                        </div>
+                        <p style="font-size: 14px; color: #B3B3B3;">開発者がEFTをステーク。正/負リターンで報酬獲得または焼却</p>
+                        <div style="font-size: 12px; margin-top: 16px; padding: 4px 12px; display: inline-block; background-color: #000; border: 1px solid #4AF35B; border-radius: 9999px;">
+                            <span style="font-family: 'Space Mono', monospace; color: #4AF35B;">インセンティブ</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Oracle -->
+                    <div class="component-card" style="padding: 20px; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; margin-right: 12px;">
+                                <i class="fas fa-chart-line component-icon" style="font-size: 20px;"></i>
+                            </div>
+                            <h3 class="component-title" style="font-size: 18px;">Performance Oracle</h3>
+                        </div>
+                        <p style="font-size: 14px; color: #B3B3B3;">QUOREAの実取引APIから1時間毎に損益をオンチェーン記録</p>
+                        <div style="font-size: 12px; margin-top: 16px; padding: 4px 12px; display: inline-block; background-color: #000; border: 1px solid #4AF35B; border-radius: 9999px;">
+                            <span style="font-family: 'Space Mono', monospace; color: #4AF35B;">透明性確保</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Central system -->
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #000; border: 1px solid #4AF35B; z-index: 10;">
+                    <i class="fas fa-microchip" style="font-size: 48px;" class="component-icon"></i>
+                </div>
+                
+                <!-- Connection lines (simplified) -->
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                    <line x1="25%" y1="25%" x2="50%" y2="50%" stroke="#4AF35B" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+                    <line x1="75%" y1="25%" x2="50%" y2="50%" stroke="#4AF35B" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+                    <line x1="25%" y1="75%" x2="50%" y2="50%" stroke="#4AF35B" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+                    <line x1="75%" y1="75%" x2="50%" y2="50%" stroke="#4AF35B" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- System metrics at bottom -->
+        <div style="padding: 0 64px; margin-bottom: 32px;">
+            <div style="display: flex; justify-content: space-between;">
+                <div style="text-align: center;">
+                    <p style="font-size: 12px; color: #999; margin-bottom: 4px;">AIロボット数</p>
+                    <p style="font-family: 'Space Mono', monospace; font-size: 30px; font-weight: 700;" class="accent-color">20,000+</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 12px; color: #999; margin-bottom: 4px;">トークン総供給量</p>
+                    <p style="font-family: 'Space Mono', monospace; font-size: 30px; font-weight: 700;" class="accent-color">1,000,000,000</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 12px; color: #999; margin-bottom: 4px;">年間インフレ率</p>
+                    <p style="font-family: 'Space Mono', monospace; font-size: 30px; font-weight: 700;" class="accent-color">1.0%</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 12px; color: #999; margin-bottom: 4px;">P&Lアップデート</p>
+                    <p style="font-family: 'Space Mono', monospace; font-size: 30px; font-weight: 700;" class="accent-color">1時間毎</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding: 0 64px 24px;">
+            <div class="bottom-line" style="margin-bottom: 16px;"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; align-items: center; font-size: 14px; color: #999;">
+                    <span>EFIT-P | Web3 Investment Protocol</span>
+                </div>
+                <p style="font-size: 14px; color: #999;">06</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

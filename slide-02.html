@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFIT-P - 目次</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #000000;
+        }
+        
+        /* A4横向き用の設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #000000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .slide-container {
+                width: 297mm;
+                height: 210mm;
+                margin: 0;
+                padding: 0;
+                page-break-after: avoid;
+                position: relative;
+            }
+        }
+        
+        /* 画面表示用 */
+        @media screen {
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #222;
+            }
+            
+            .slide-container {
+                width: 1280px;
+                height: 720px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+        
+        .slide-container {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .toc-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .toc-item:hover .toc-text {
+            color: #4AF35B;
+        }
+        
+        .content-card {
+            background-color: #111;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .content-card:hover {
+            border-color: #4AF35B;
+        }
+        
+        .bottom-line {
+            height: 1px;
+            background-color: #333;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- ヘッダー部分 -->
+        <div style="padding: 60px 80px 0;">
+            <h1 class="slide-title" style="font-size: 60px; margin-bottom: 16px;">CONTENTS</h1>
+            <p style="font-size: 20px; font-weight: 500; color: #FFFFFF; margin-bottom: 48px;">EFIT-Pプロトコル プレゼンテーション概要</p>
+        </div>
+        
+        <!-- 目次コンテンツ -->
+        <div style="flex: 1; padding: 0 80px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; row-gap: 24px;">
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">01</span>
+                    <span class="toc-text" style="color: #FFFFFF;">プロジェクト概要</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">07</span>
+                    <span class="toc-text" style="color: #FFFFFF;">競合分析・優位性</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">02</span>
+                    <span class="toc-text" style="color: #FFFFFF;">市場課題</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">08</span>
+                    <span class="toc-text" style="color: #FFFFFF;">運用スキーム図解</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">03</span>
+                    <span class="toc-text" style="color: #FFFFFF;">ソリューション全体像</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">09</span>
+                    <span class="toc-text" style="color: #FFFFFF;">ロードマップ</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">04</span>
+                    <span class="toc-text" style="color: #FFFFFF;">コンポーネント詳細</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">10</span>
+                    <span class="toc-text" style="color: #FFFFFF;">リスク＆コンプライアンス</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">05</span>
+                    <span class="toc-text" style="color: #FFFFFF;">技術アーキテクチャ</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">11</span>
+                    <span class="toc-text" style="color: #FFFFFF;">成長戦略・ビジョン</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">06</span>
+                    <span class="toc-text" style="color: #FFFFFF;">トークノミクス</span>
+                </div>
+                <div class="toc-item" style="padding: 8px 0; transition: all 0.2s ease;">
+                    <span style="font-family: 'Space Mono', monospace; color: #4AF35B; font-weight: 700; margin-right: 12px; width: 32px; display: inline-block; text-align: right;">12</span>
+                    <span class="toc-text" style="color: #FFFFFF;">まとめ</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ボトムコンテンツ -->
+        <div style="padding: 0 80px 24px;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px;">
+                <div class="content-card" style="display: flex; flex-direction: column; align-items: center; padding: 24px 0;">
+                    <i class="fas fa-robot accent-color" style="font-size: 24px; margin-bottom: 12px;"></i>
+                    <p style="font-size: 14px; color: #FFFFFF;">AIロボットNFT</p>
+                </div>
+                <div class="content-card" style="display: flex; flex-direction: column; align-items: center; padding: 24px 0;">
+                    <i class="fas fa-cubes accent-color" style="font-size: 24px; margin-bottom: 12px;"></i>
+                    <p style="font-size: 14px; color: #FFFFFF;">Web3インフラ</p>
+                </div>
+                <div class="content-card" style="display: flex; flex-direction: column; align-items: center; padding: 24px 0;">
+                    <i class="fas fa-chart-line accent-color" style="font-size: 24px; margin-bottom: 12px;"></i>
+                    <p style="font-size: 14px; color: #FFFFFF;">投資のデモクラシー</p>
+                </div>
+                <div class="content-card" style="display: flex; flex-direction: column; align-items: center; padding: 24px 0;">
+                    <i class="fas fa-coins accent-color" style="font-size: 24px; margin-bottom: 12px;"></i>
+                    <p style="font-size: 14px; color: #FFFFFF;">トークンエコノミー</p>
+                </div>
+            </div>
+            
+            <!-- フッター -->
+            <div class="bottom-line" style="margin-bottom: 12px;"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #999;">
+                <span>EFIT-P | Web3 Investment Protocol</span>
+                <span>02</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>まとめ・メッセージ | PutchDesk</title>
+  <style>
+    /* --------------------------------------------------
+       Reset & Fonts
+    -------------------------------------------------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+    /* --------------------------------------------------
+       Base
+    -------------------------------------------------- */
+    html,body{ width:1280px; height:720px; overflow:hidden; background:#000; color:#fff; font-family:'Inter','Noto Sans JP',sans-serif; }
+    .slide-container{ width:inherit; height:inherit; display:flex; flex-direction:column; position:relative; }
+
+    /* --------------------------------------------------
+       Layout Sections
+    -------------------------------------------------- */
+    .header{ padding:48px 60px 32px; text-align:center; }
+    .slide-title{ font-family:'Space Mono',monospace; font-size:48px; font-weight:700; }
+    .accent-color{ color:#4AF35B; }
+
+    .main-content{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 60px; }
+    .main-message{ text-align:center; margin-bottom:32px; }
+    .main-message h2{ font-size:36px; font-weight:700; line-height:1.4; letter-spacing:-0.02em; }
+
+    .quote-box{ background:rgba(74,243,91,0.06); border-left:4px solid #4AF35B; padding:24px 48px; margin-bottom:40px; max-width:800px; }
+    .quote-text{ font-size:22px; font-weight:500; text-align:center; line-height:1.5; }
+
+    /* CTA moved further down */
+    .cta-box{ background:rgba(74,243,91,0.10); border:1px solid #4AF35B; border-radius:8px; padding:16px 32px; margin-top:100px; margin-bottom:32px; }
+    .cta-text{ font-size:18px; font-weight:500; }
+
+    .feature-grid{ position:absolute; bottom:180px; left:0; right:0; display:flex; justify-content:center; gap:24px; padding:0 120px; }
+    .feature-item{ background:#111; border:1px solid #222; border-radius:8px; padding:20px 32px; text-align:center; transition:all .3s ease; flex:1; max-width:220px; }
+    .feature-item:hover{ border-color:#4AF35B; background:rgba(74,243,91,0.02); }
+    .feature-icon{ font-size:24px; color:#4AF35B; margin-bottom:8px; opacity:.85; }
+    .feature-text{ font-size:14px; color:#B3B3B3; font-weight:500; }
+
+    .footer{ position:absolute; bottom:24px; left:60px; right:60px; display:flex; justify-content:space-between; align-items:center; padding-top:16px; border-top:1px solid #222; }
+    .footer-text{ font-size:12px; color:#666; }
+    .slide-number{ font-family:'Space Mono',monospace; font-size:12px; color:#4AF35B; }
+
+    /* --------------------------------------------------
+       Print / PDF settings
+    -------------------------------------------------- */
+    @page{ size:1280px 720px; margin:0; }
+    @media print{ body{ -webkit-print-color-adjust:exact; } }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="slide-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="slide-title">まとめ・メッセージ</h1>
+    </div>
+
+    <!-- Main -->
+    <div class="main-content">
+      <div class="main-message">
+        <h2>
+          EFIT‑Pは<span class="accent-color">投資アルファのオンチェーン民主化</span>を<br />
+          日本から世界へ拡大します
+        </h2>
+      </div>
+
+      <div class="quote-box">
+        <p class="quote-text">「優秀なモデルを世界から集め、過学習を罰し、実運用利益を共有」</p>
+      </div>
+
+      <!-- CTA only—metrics removed to防 overlap -->
+      <div class="cta-box">
+        <p class="cta-text">次世代投資エコシステムの成長にご期待ください</p>
+      </div>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <i class="fas fa-globe feature-icon"></i>
+        <p class="feature-text">グローバル展開</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-seedling feature-icon"></i>
+        <p class="feature-text">持続可能な成長</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-users feature-icon"></i>
+        <p class="feature-text">コミュニティ主導</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-lock-open feature-icon"></i>
+        <p class="feature-text">透明性と信頼</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="footer-text">PutchDesk Confidential © 2025</span>
+      <span class="slide-number">13 / 13</span>
+    </div>
+  </div>
+</body>
+</html>

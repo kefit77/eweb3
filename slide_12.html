@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リスクと今後の成長戦略</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+        
+        body {
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            color: #FFFFFF;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #000000;
+        }
+        
+        .header {
+            padding: 40px 60px 20px 60px;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 42px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .content-area {
+            flex: 1;
+            padding: 0 60px 80px 60px;
+            display: flex;
+            gap: 32px;
+            max-height: calc(720px - 140px - 60px);
+        }
+        
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-header {
+            font-family: 'Space Mono', monospace;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-icon {
+            color: #4AF35B;
+            font-size: 20px;
+        }
+        
+        .content-box {
+            background-color: #111111;
+            border: 1px solid #222222;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .content-box:hover {
+            border-color: #4AF35B;
+            background-color: rgba(74, 243, 91, 0.02);
+        }
+        
+        .box-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4AF35B;
+            margin-bottom: 10px;
+        }
+        
+        .item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .item-icon {
+            color: #4AF35B;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .item-text {
+            color: #B3B3B3;
+        }
+        
+        .phase-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            padding: 12px;
+        }
+        
+        .phase-item {
+            text-align: center;
+        }
+        
+        .phase-label {
+            font-size: 10px;
+            color: #666666;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .phase-year {
+            font-family: 'Space Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: #4AF35B;
+        }
+        
+        .arrow {
+            color: #4AF35B;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+        
+        .highlight-box {
+            background-color: rgba(74, 243, 91, 0.05);
+            border: 1px solid rgba(74, 243, 91, 0.3);
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin-top: 12px;
+            text-align: center;
+        }
+        
+        .highlight-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: #4AF35B;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-right: 10px;
+        }
+        
+        .highlight-text {
+            font-size: 13px;
+            color: #FFFFFF;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 24px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #222222;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #666666;
+        }
+        
+        .slide-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #4AF35B;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="slide-title">リスク<span class="accent-color">と</span>今後の成長戦略</h1>
+        </div>
+        
+        <div class="content-area">
+            <!-- Left column - Risks -->
+            <div class="column">
+                <h2 class="section-header">
+                    <i class="fas fa-shield-alt section-icon"></i>
+                    <span>リスク対策</span>
+                </h2>
+                
+                <div class="content-box">
+                    <h3 class="box-title">法令・税務リスク</h3>
+                    <div class="item">
+                        <i class="fas fa-gavel item-icon"></i>
+                        <span class="item-text">金商法2条2項「みなし有価証券」該当可能性</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-check-circle item-icon"></i>
+                        <span class="item-text">分別管理と年次監査で対応</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-receipt item-icon"></i>
+                        <span class="item-text">税務ストラクチャ設計と事前協議</span>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3 class="box-title">技術リスク</h3>
+                    <div class="item">
+                        <i class="fas fa-code item-icon"></i>
+                        <span class="item-text">スマートコントラクト脆弱性</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-check-circle item-icon"></i>
+                        <span class="item-text">Formal Verification + バグバウンティ</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-shield-alt item-icon"></i>
+                        <span class="item-text">Nexus Mutual保険でリスク移転</span>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3 class="box-title">市場リスク</h3>
+                    <div class="item">
+                        <i class="fas fa-chart-line item-icon"></i>
+                        <span class="item-text">原資産ボラティリティによるロスカット</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-check-circle item-icon"></i>
+                        <span class="item-text">多資産分散とリスク許容度設定</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-balance-scale item-icon"></i>
+                        <span class="item-text">自動レバレッジ調整システム導入</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <span class="highlight-label">DUAL</span>
+                    <span class="highlight-text">二重監査体制で透明性確保</span>
+                </div>
+            </div>
+            
+            <!-- Right column - Growth Strategy -->
+            <div class="column">
+                <h2 class="section-header">
+                    <i class="fas fa-rocket section-icon"></i>
+                    <span>成長ビジョン</span>
+                </h2>
+                
+                <div class="content-box">
+                    <div class="phase-container">
+                        <div class="phase-item">
+                            <p class="phase-label">PHASE 1</p>
+                            <p class="phase-year">2025-26</p>
+                        </div>
+                        <i class="fas fa-arrow-right arrow"></i>
+                        <div class="phase-item">
+                            <p class="phase-label">PHASE 2</p>
+                            <p class="phase-year">2026-27</p>
+                        </div>
+                        <i class="fas fa-arrow-right arrow"></i>
+                        <div class="phase-item">
+                            <p class="phase-label">PHASE 3</p>
+                            <p class="phase-year">2027-</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3 class="box-title">組織進化</h3>
+                    <div class="item">
+                        <i class="fas fa-sitemap item-icon"></i>
+                        <span class="item-text">完全DAO化への移行 (2026 H2)</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-vote-yea item-icon"></i>
+                        <span class="item-text">分散型ガバナンスによるパラメータ最適化</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-users item-icon"></i>
+                        <span class="item-text">コミュニティ主導のロードマップ決定</span>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3 class="box-title">グローバル展開</h3>
+                    <div class="item">
+                        <i class="fas fa-globe-asia item-icon"></i>
+                        <span class="item-text">日本発の分散型資産運用インフラへ</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-handshake item-icon"></i>
+                        <span class="item-text">従来の金融機関とのクロスボーダー連携</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-cubes item-icon"></i>
+                        <span class="item-text">クロスチェーン展開と相互運用性の強化</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <span class="highlight-label">VISION</span>
+                    <span class="highlight-text">投資アルファの真の民主化</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span class="footer-text">EFIT-P PROJECT</span>
+            <span class="slide-number">03/13</span>
+        </div>
+    </div>
+</body>
+</html>

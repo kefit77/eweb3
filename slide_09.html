@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>競合分析・優位性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+        
+        body {
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            color: #FFFFFF;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #000000;
+        }
+        
+        .header {
+            padding: 48px 60px 32px 60px;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 48px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .content-area {
+            flex: 1;
+            padding: 0 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background-color: #111111;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table-header {
+            background-color: #111111;
+            border-bottom: 2px solid #222222;
+        }
+        
+        th {
+            padding: 20px 24px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            color: #B3B3B3;
+        }
+        
+        td {
+            padding: 20px 24px;
+            border-bottom: 1px solid #1A1A1A;
+            font-size: 14px;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        .company-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .company-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .efitp-logo {
+            background-color: #4AF35B;
+            color: #000000;
+        }
+        
+        .numerai-logo {
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+        
+        .hedge-logo {
+            background-color: #555555;
+            color: #FFFFFF;
+        }
+        
+        .highlight-cell {
+            background-color: rgba(74, 243, 91, 0.05);
+            border-left: 3px solid #4AF35B;
+            padding-left: 21px;
+        }
+        
+        .metric-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: #4AF35B;
+            margin-bottom: 4px;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #666666;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            background-color: rgba(74, 243, 91, 0.1);
+            border: 1px solid #4AF35B;
+            border-radius: 4px;
+            padding: 4px 12px;
+            font-size: 11px;
+            color: #4AF35B;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 8px;
+        }
+        
+        .advantage-card {
+            background-color: #111111;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .advantage-card:hover {
+            border-color: #4AF35B;
+            background-color: rgba(74, 243, 91, 0.02);
+        }
+        
+        .advantage-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .advantage-icon {
+            font-size: 20px;
+            color: #4AF35B;
+            opacity: 0.8;
+        }
+        
+        .advantage-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+        
+        .advantage-text {
+            font-size: 13px;
+            color: #B3B3B3;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 24px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #222222;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #666666;
+        }
+        
+        .slide-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #4AF35B;
+        }
+        
+        .center-text {
+            text-align: center;
+        }
+        
+        .gray-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: #999999;
+            margin-bottom: 4px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="slide-title">競合分析・<span class="accent-color">優位性</span></h1>
+        </div>
+        
+        <div class="content-area">
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr class="table-header">
+                            <th style="width: 25%;"></th>
+                            <th style="width: 25%;" class="center-text">
+                                <div class="company-header">
+                                    <span class="company-logo efitp-logo">E</span>
+                                    <span>EFIT-P</span>
+                                </div>
+                            </th>
+                            <th style="width: 25%;" class="center-text">
+                                <div class="company-header">
+                                    <span class="company-logo numerai-logo">N</span>
+                                    <span>Numerai</span>
+                                </div>
+                            </th>
+                            <th style="width: 25%;" class="center-text">
+                                <div class="company-header">
+                                    <span class="company-logo hedge-logo">H</span>
+                                    <span>従来ヘッジファンド</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>資産クラス</td>
+                            <td class="highlight-cell center-text">
+                                <div style="font-weight: 600; margin-bottom: 4px;">CFD/FX/BTC</div>
+                                <span class="feature-badge">マルチアセット対応</span>
+                            </td>
+                            <td class="center-text">米国株ロング/ショート</td>
+                            <td class="center-text">株式/債券中心</td>
+                        </tr>
+                        <tr>
+                            <td>アルゴ開発者数</td>
+                            <td class="highlight-cell center-text">
+                                <div class="metric-value">20,000+</div>
+                                <div class="metric-label">ロボット</div>
+                            </td>
+                            <td class="center-text">
+                                <div class="gray-value">8,000</div>
+                                <div class="metric-label">データサイエンティスト</div>
+                            </td>
+                            <td class="center-text">
+                                <div class="gray-value">数十名</div>
+                                <div class="metric-label">アナリスト</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>フィーモデル</td>
+                            <td class="highlight-cell center-text">
+                                <div style="font-family: 'Space Mono', monospace; font-weight: 700; color: #4AF35B; font-size: 18px; margin-bottom: 4px;">1-1-20</div>
+                                <div class="metric-label">NFT Premium可変</div>
+                            </td>
+                            <td class="center-text">
+                                <div style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; margin-bottom: 4px;">1-20</div>
+                                <div class="metric-label">固定</div>
+                            </td>
+                            <td class="center-text">
+                                <div style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; margin-bottom: 4px;">2-20</div>
+                                <div class="metric-label">固定</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>可視性</td>
+                            <td class="highlight-cell center-text">
+                                <div style="font-weight: 600; margin-bottom: 4px;">オンチェーンP&L</div>
+                                <span class="feature-badge">完全透明</span>
+                            </td>
+                            <td class="center-text">月次報告非公開</td>
+                            <td class="center-text">四半期報告</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-header">
+                        <i class="fas fa-layer-group advantage-icon"></i>
+                        <h3 class="advantage-title">多様な資産クラス</h3>
+                    </div>
+                    <p class="advantage-text">CFDから暗号資産まで幅広くカバー。日本市場に特化した資産クラスへのアクセスを提供。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-header">
+                        <i class="fas fa-brain advantage-icon"></i>
+                        <h3 class="advantage-title">圧倒的な開発者エコシステム</h3>
+                    </div>
+                    <p class="advantage-text">2万体以上のAIロボットが競争し、最適な投資モデルを常時探索・更新。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-header">
+                        <i class="fas fa-chart-line advantage-icon"></i>
+                        <h3 class="advantage-title">オンチェーン透明性</h3>
+                    </div>
+                    <p class="advantage-text">リアルタイムのパフォーマンス記録がブロックチェーン上に公開され、完全な監査可能性を実現。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span class="footer-text">EFIT-P PROJECT</span>
+            <span class="slide-number">02/13</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFIT-P - トークノミクス</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #000000;
+        }
+        
+        /* A4横向き用の設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #000000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .slide-container {
+                width: 297mm;
+                height: 210mm;
+                margin: 0;
+                padding: 0;
+                page-break-after: avoid;
+                position: relative;
+            }
+        }
+        
+        /* 画面表示用 */
+        @media screen {
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #222;
+            }
+            
+            .slide-container {
+                width: 1280px;
+                height: 720px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+        }
+        
+        .slide-container {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .slide-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .accent-color {
+            color: #4AF35B;
+        }
+        
+        .content-box {
+            background-color: #111111;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .token-allocation {
+            height: 24px;
+            transition: all 0.3s ease;
+            background-color: #4AF35B;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .token-allocation:hover {
+            opacity: 0.8;
+        }
+        
+        .bottom-line {
+            height: 1px;
+            background-color: #333;
+        }
+        
+        .key-point {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .key-point i {
+            color: #4AF35B;
+            margin-right: 14px;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .metric-box {
+            border: 1px solid #333;
+            background-color: #111;
+            transition: all 0.3s ease;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .metric-box:hover {
+            border-color: #4AF35B;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Title area -->
+        <div style="width: 100%; padding: 48px 64px 16px;">
+            <h1 class="slide-title" style="font-size: 40px;">トークノ<span class="accent-color">ミクス</span></h1>
+        </div>
+        
+        <!-- Content area -->
+        <div style="display: flex; flex: 1; padding: 0 64px 24px;">
+            <!-- Left side - Token allocation -->
+            <div style="width: 50%; padding-right: 40px; display: flex; flex-direction: column;">
+                <div style="margin-bottom: 24px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <p style="color: #999; font-size: 14px;">総発行数</p>
+                        <p style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 20px;" class="accent-color">10億枚</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p style="color: #999; font-size: 14px;">年間インフレ率</p>
+                        <p style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 20px;" class="accent-color">1%</p>
+                    </div>
+                </div>
+                
+                <!-- Token allocation chart -->
+                <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">トークン配分</h3>
+                <div class="content-box" style="padding: 16px; margin-bottom: 24px;">
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>コミュニティ報酬</span>
+                            <span style="font-family: 'Space Mono', monospace;" class="accent-color">30%</span>
+                        </div>
+                        <div style="width: 100%; background-color: #000; border-radius: 9999px;">
+                            <div class="token-allocation" style="border-radius: 9999px; width: 30%;"></div>
+                        </div>
+                        <div style="font-size: 12px; color: #999; margin-top: 4px;">5年線形解除</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>開発者エコシステム</span>
+                            <span style="font-family: 'Space Mono', monospace;" class="accent-color">20%</span>
+                        </div>
+                        <div style="width: 100%; background-color: #000; border-radius: 9999px;">
+                            <div class="token-allocation" style="border-radius: 9999px; width: 20%;"></div>
+                        </div>
+                        <div style="font-size: 12px; color: #999; margin-top: 4px;">3年線形解除</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>投資家セール</span>
+                            <span style="font-family: 'Space Mono', monospace;" class="accent-color">15%</span>
+                        </div>
+                        <div style="width: 100%; background-color: #000; border-radius: 9999px;">
+                            <div class="token-allocation" style="border-radius: 9999px; width: 15%;"></div>
+                        </div>
+                        <div style="font-size: 12px; color: #999; margin-top: 4px;">6-12ヶ月ロック</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>予備/流動性プール</span>
+                            <span style="font-family: 'Space Mono', monospace;" class="accent-color">15%</span>
+                        </div>
+                        <div style="width: 100%; background-color: #000; border-radius: 9999px;">
+                            <div class="token-allocation" style="border-radius: 9999px; width: 15%;"></div>
+                        </div>
+                        <div style="font-size: 12px; color: #999; margin-top: 4px;">ロックなし</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 8px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span>チーム & 早期出資者</span>
+                            <span style="font-family: 'Space Mono', monospace;" class="accent-color">20%</span>
+                        </div>
+                        <div style="width: 100%; background-color: #000; border-radius: 9999px;">
+                            <div class="token-allocation" style="border-radius: 9999px; width: 20%;"></div>
+                        </div>
+                        <div style="font-size: 12px; color: #999; margin-top: 4px;">4年クリフ＋線形解除</div>
+                    </div>
+                </div>
+                
+                <!-- Utility -->
+                <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">EFTトークン活用方法</h3>
+                <div class="content-box" style="padding: 16px;">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                        <div class="metric-box" style="display: flex; align-items: center; padding: 12px;">
+                            <i class="fas fa-hand-holding-usd accent-color" style="font-size: 18px; margin-right: 12px;"></i>
+                            <span style="font-size: 14px;">手数料支払い</span>
+                        </div>
+                        <div class="metric-box" style="display: flex; align-items: center; padding: 12px;">
+                            <i class="fas fa-lock accent-color" style="font-size: 18px; margin-right: 12px;"></i>
+                            <span style="font-size: 14px;">ステーキング</span>
+                        </div>
+                        <div class="metric-box" style="display: flex; align-items: center; padding: 12px;">
+                            <i class="fas fa-vote-yea accent-color" style="font-size: 18px; margin-right: 12px;"></i>
+                            <span style="font-size: 14px;">ガバナンス投票</span>
+                        </div>
+                        <div class="metric-box" style="display: flex; align-items: center; padding: 12px;">
+                            <i class="fas fa-percentage accent-color" style="font-size: 18px; margin-right: 12px;"></i>
+                            <span style="font-size: 14px;">手数料割引</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side - Token mechanics -->
+            <div style="width: 50%; padding-left: 40px; display: flex; flex-direction: column;">
+                <!-- Buy-back & Burn -->
+                <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">Buy-back & Burn プログラム</h3>
+                <div class="content-box" style="padding: 16px; margin-bottom: 24px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #000; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                            <i class="fas fa-fire accent-color" style="font-size: 24px;"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 14px; margin-bottom: 4px;">プログラム開始</p>
+                            <p style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 20px;" class="accent-color">2026 H2 (P4)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <i class="fas fa-chart-line"></i>
+                        <span>収益の一部をトークン買戻しに使用</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-minus-circle"></i>
+                        <span>買戻したトークンを定期的に焼却</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>需給バランスの長期的最適化</span>
+                    </div>
+                </div>
+                
+                <!-- Long-term incentives -->
+                <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 12px;">長期保有インセンティブ</h3>
+                <div class="content-box" style="padding: 16px;">
+                    <div style="position: relative; height: 200px; margin-bottom: 16px;">
+                        <!-- Simplified chart representation -->
+                        <div style="position: relative; height: 100%; width: 100%;">
+                            <!-- X-axis -->
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background-color: #666;"></div>
+                            <!-- Y-axis -->
+                            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background-color: #666;"></div>
+                            
+                            <!-- Chart line -->
+                            <svg style="position: absolute; inset: 0; height: 100%; width: 100%;" viewBox="0 0 400 200">
+                                <polyline 
+                                    points="0,200 100,160 200,100 300,60 400,20" 
+                                    fill="none" 
+                                    stroke="#4AF35B" 
+                                    stroke-width="2"
+                                />
+                                <!-- Filled area under the curve -->
+                                <path 
+                                    d="M0,200 L100,160 L200,100 L300,60 L400,20 L400,200 Z" 
+                                    fill="rgba(74, 243, 91, 0.1)"
+                                />
+                            </svg>
+                            
+                            <!-- Labels -->
+                            <div style="position: absolute; bottom: 8px; left: 0; font-size: 12px; color: #999;">0</div>
+                            <div style="position: absolute; bottom: 8px; right: 0; font-size: 12px; color: #999;">参加者数</div>
+                            <div style="position: absolute; top: 0; left: 8px; font-size: 12px; color: #999;">報酬</div>
+                        </div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <i class="fas fa-users"></i>
+                        <span>参加者が増えるほど長期保有者の報酬増加</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-clock"></i>
+                        <span>保有期間に応じた累進的ステーキング報酬</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Stake-to-Allocateによる実力証明</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding: 0 64px 24px;">
+            <div class="bottom-line" style="margin-bottom: 16px;"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; align-items: center; font-size: 14px; color: #999;">
+                    <span>EFIT-P | Web3 Investment Protocol</span>
+                </div>
+                <p style="font-size: 14px; color: #999;">08</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
